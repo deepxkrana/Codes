@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build and Run Secure File",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++17",
+                "-I/usr/local/opt/cryptopp/include",
+                "-L/usr/local/opt/cryptopp/lib",
+                "secure_file.cpp",
+                "-o",
+                "secure_file",
+                "-lcryptopp"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "Crypto++ Compilation Task"
+        }
+    ]
+}

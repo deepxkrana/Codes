@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Conquest</title>
+    <style>
+        canvas {
+            background: black;
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <script>
+        const GRID_SIZE = 4;
+        const CELL_SIZE = 150;
+        const WINDOW_SIZE = GRID_SIZE * CELL_SIZE;
+
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = WINDOW_SIZE;
+        canvas.height = WINDOW_SIZE;
+
+        let board = Array.from({ length: GRID_SIZE }, () =>
+            Array.from({ length: GRID_SIZE }, () => ({ value: Math.floor(Math.random() * 10) + 1, owner: -1 })));
+        let currentPlayer = 0;
+
+        function drawBoard() {
+            ctx.clearRect(0, 0, WINDOW_SIZE, WINDOW_SIZE);
+            for (let y = 0; y < GRID_SIZE; y++) {
+                for (let x = 0; x < GRID_SIZE; x++) {
+                    ctx.fillStyle = "#ccc";
+                    ctx.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+                    ctx.strokeRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+
+                    ctx.fillStyle = "black";
+                    ctx.font = "30px Arial";
+                    ctx.fillText(board[y][x].value, x * CELL_SIZE + CELL_SIZE / 2 - 10, y * CELL_SIZE + CELL_SIZE / 2);
+
+                    if (board[y][x].owner === 0) ctx.fillStyle = "blue";
+                    else if (board[y][x].owner === 1) ctx.fillStyle = "red";
+                    else continue;
+                    ctx.beginPath();
+                    ctx.arc(x * CELL_SIZE + CELL_SIZE / 2, y * CELL_SIZE + CELL_SIZE / 2, 20, 0, 2 * Math.PI);
+                    ctx.fill();
+                }
+            }
+        }
+
+        function getPossibleMoves() {
+            let moves = [];
+            for (let y = 0; y < GRID_SIZE; y++) {
+                for (let x = 0; x < GRID_SIZE; x++) {
+                    if (board[y][x].owner === -1) moves.push([x, y]);
+                }
+            }
+            return moves;
+        }
+
+        function evaluate() {
+            return board.flat().reduce((score, cell) => {
+                if (cell.owner === 0) return score + cell.value;
+                if (cell.owner === 1) return score - cell.value;
+                return score;
+            }, 0);
+        }
+
+        function minimax(depth, alpha, beta, maximizingPlayer) {
+            let moves = getPossibleMoves();
+            if (depth === 0 || moves.length === 0) return [evaluate(), null];
+
+            let bestMove = null;
+            if (maximizingPlayer) {
+                let maxEval = -Infinity;
+                for (let move of moves) {
+                    let [x, y] = move;
+                    board[y][x].owner = 0;
+                    let eval = minimax(depth - 1, alpha, beta, false)[0];
+                    board[y][x].owner = -1;
+                    if (eval > maxEval) {
+                        maxEval = eval;
+                        bestMove = move;
+                    }
+                    alpha = Math.max(alpha, eval);
+                    if (beta <= alpha) break;
+                }
+                return [maxEval, bestMove];
+            } else {
+                let minEval = Infinity;
+                for (let move of moves) {
+                    let [x, y] = move;
+                    board[y][x].owner = 1;
+                    let eval = minimax(depth - 1, alpha, beta, true)[0];
+                    board[y][x].owner = -1;
+                    if (eval < minEval) {
+                        minEval = eval;
+                        bestMove = move;
+                    }
+                    beta = Math.min(beta, eval);
+                    if (beta <= alpha) break;
+                }
+                return [minEval, bestMove];
+            }
+        }
+
+        function checkGameOver() {
+            if (getPossibleMoves().length === 0) {
+                let score = evaluate();
+                let message = score > 0 ? "Human Wins!" : score < 0 ? "AI Wins!" : "It's a Tie!";
+                setTimeout(() => alert(message), 500);
+            }
+        }
+
+        function handleMove(x, y) {
+            if (board[y][x].owner === -1) {
+                board[y][x].owner = currentPlayer;
+                currentPlayer = 1 - currentPlayer;
+                drawBoard();
+                checkGameOver();
+
+                if (getPossibleMoves().length > 0 && currentPlayer === 1) {
+                    setTimeout(() => {
+                        let [, move] = minimax(3, -Infinity, Infinity, false);
+                        if (move) handleMove(move[0], move[1]);
+                    }, 500);
+                }
+            }
+        }
+
+        canvas.addEventListener("click", (event) => {
+            if (currentPlayer === 0) {
+                let x = Math.floor(event.offsetX / CELL_SIZE);
+                let y = Math.floor(event.offsetY / CELL_SIZE);
+                handleMove(x, y);
+            }
+        });
+
+        drawBoard();
+    </script>
+</body>
+</html>

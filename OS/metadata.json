@@ -1,0 +1,16 @@
+{
+  "90732718-2209-4007-a067-d78c55fe23e7": {
+    "file_id": "90732718-2209-4007-a067-d78c55fe23e7",
+    "filename": "90732718-2209-4007-a067-d78c55fe23e7_1743244622",
+    "original_filename": "example.txt",
+    "size": 47,
+    "content_type": "application/octet-stream",
+    "owner_id": "bfe6b9f1-5a21-45a2-9dcc-db7613afaec7",
+    "key_id": "95be9478-6ca0-4701-b911-f22f7941c631",
+    "created_at": 1743244622,
+    "modified_at": 1743244622,
+    "checksum": "4de84e7ffefbc3b91b4ed2b2ad711d67836c8ca01cdf0061dd545d31ca85aa08",
+    "version": 1,
+    "parent_folder_id": null
+  }
+}

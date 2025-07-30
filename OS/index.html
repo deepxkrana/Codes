@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure File Management System</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Login Screen */
+        .login-screen {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin: 80px auto;
+            padding: 30px;
+        }
+
+        .login-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Dashboard */
+        .dashboard {
+            display: none; /* Hidden initially */
+        }
+
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 0;
+            margin-bottom: 30px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-info span {
+            margin-right: 15px;
+        }
+
+        .logout-btn {
+            background-color: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
+
+        .main-content {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-right: 20px;
+        }
+
+        .sidebar-title {
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 18px;
+        }
+
+        .menu-item {
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+
+        .menu-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .active {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .active:hover {
+            background-color: #2980b9;
+        }
+
+        .content-area {
+            flex-grow: 1;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .content-title {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        /* Panel System */
+        .panel {
+            display: none;
+        }
+
+        .panel.active {
+            display: block;
+        }
+
+        /* Table Styles */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .data-table th, .data-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .data-table th {
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
+
+        .data-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* File Explorer */
+        .file-explorer {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+        }
+
+        .path-bar {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .path-text {
+            margin-left: 10px;
+            flex-grow: 1;
+        }
+
+        .action-buttons {
+            margin-bottom: 15px;
+        }
+
+        .small-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .small-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .file-item {
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .file-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .file-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .file-name {
+            font-size: 14px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .folder {
+            color: #f39c12;
+        }
+
+        .file {
+            color: #3498db;
+        }
+
+        .locked {
+            position: relative;
+        }
+
+        .locked:after {
+            content: "🔒";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 16px;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        .modal-title {
+            margin-bottom: 20px;
+        }
+
+        .close-btn {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Forms */
+        .form-row {
+            margin-bottom: 15px;
+        }
+
+        .password-requirements {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .password-strength {
+            height: 5px;
+            width: 100%;
+            background-color: #eee;
+            margin-top: 5px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .strength-meter {
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        .weak {
+            background-color: #e74c3c;
+            width: 33%;
+        }
+
+        .medium {
+            background-color: #f39c12;
+            width: 66%;
+        }
+
+        .strong {
+            background-color: #2ecc71;
+            width: 100%;
+        }
+
+        /* Checkbox styles */
+        .checkbox-group {
+            margin-top: 10px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .checkbox-label input {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div class="login-screen" id="loginScreen">
+        <h2 class="login-title">Secure File Management System</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" class="form-control" placeholder="Enter username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Enter password" required>
+            </div>
+            <button type="submit" class="btn" id="loginBtn">Login</button>
+        </form>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="dashboard" id="dashboard">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="navbar">
+                    <div class="logo">Secure File System</div>
+                    <div class="user-info">
+                        <span>Welcome, <strong id="currentUser">Admin</strong></span>
+                        <span>Role: <strong id="userRole">Administrator</strong></span>
+                        <button class="logout-btn" id="logoutBtn">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="container">
+            <div class="main-content">
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <h3 class="sidebar-title">Navigation</h3>
+                    <div class="menu-item active" data-panel="fileExplorer">File Explorer</div>
+                    <div class="menu-item" data-panel="userManagement">User Management</div>
+                    <div class="menu-item" data-panel="accessLogs">Access Logs</div>
+                    <div class="menu-item" data-panel="settings">Settings</div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="content-area">
+                    <!-- File Explorer Panel -->
+                    <div class="panel active" id="fileExplorer">
+                        <h2 class="content-title">File Explorer</h2>
+                        <div class="file-explorer">
+                            <div class="path-bar">
+                                <span>📂</span>
+                                <div class="path-text">/root</div>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="small-btn" id="newFolderBtn">New Folder</button>
+                                <button class="small-btn" id="uploadFileBtn">Upload File</button>
+                            </div>
+                            <div class="file-grid" id="fileGrid">
+                                <div class="file-item">
+                                    <div class="file-icon folder">📁</div>
+                                    <div class="file-name">Documents</div>
+                                </div>
+                                <div class="file-item locked">
+                                    <div class="file-icon folder">📁</div>
+                                    <div class="file-name">Secure Files</div>
+                                </div>
+                                <div class="file-item">
+                                    <div class="file-icon file">📄</div>
+                                    <div class="file-name">readme.txt</div>
+                                </div>
+                                <div class="file-item locked">
+                                    <div class="file-icon file">📄</div>
+                                    <div class="file-name">confidential.pdf</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- User Management Panel -->
+                    <div class="panel" id="userManagement">
+                        <h2 class="content-title">User Management</h2>
+                        <button class="small-btn" id="createUserBtn">Create New User</button>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Role</th>
+                                    <th>Created</th>
+                                    <th>Last Login</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>admin</td>
+                                    <td>Administrator</td>
+                                    <td>2025-03-28</td>
+                                    <td>2025-03-29</td>
+                                    <td><button class="small-btn">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>user1</td>
+                                    <td>User</td>
+                                    <td>2025-03-28</td>
+                                    <td>2025-03-29</td>
+                                    <td><button class="small-btn">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>guest</td>
+                                    <td>Guest</td>
+                                    <td>2025-03-28</td>
+                                    <td>Never</td>
+                                    <td><button class="small-btn">Edit</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Access Logs Panel -->
+                    <div class="panel" id="accessLogs">
+                        <h2 class="content-title">Access Logs</h2>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>User</th>
+                                    <th>Action</th>
+                                    <th>Resource</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2025-03-29 10:15:22</td>
+                                    <td>admin</td>
+                                    <td>LOGIN</td>
+                                    <td>-</td>
+                                    <td>Success</td>
+                                </tr>
+                                <tr>
+                                    <td>2025-03-29 10:16:05</td>
+                                    <td>admin</td>
+                                    <td>READ</td>
+                                    <td>/root/Documents</td>
+                                    <td>Success</td>
+                                </tr>
+                                <tr>
+                                    <td>2025-03-29 09:45:12</td>
+                                    <td>user1</td>
+                                    <td>CREATE</td>
+                                    <td>/root/confidential.pdf</td>
+                                    <td>Success</td>
+                                </tr>
+                                <tr>
+                                    <td>2025-03-29 09:23:45</td>
+                                    <td>guest</td>
+                                    <td>READ</td>
+                                    <td>/root/Secure Files</td>
+                                    <td>Denied</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Settings Panel -->
+                    <div class="panel" id="settings">
+                        <h2 class="content-title">System Settings</h2>
+                        <form id="settingsForm">
+                            <div class="form-group">
+                                <label for="siteTitle">System Title</label>
+                                <input type="text" id="siteTitle" class="form-control" value="Secure File Management System">
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordPolicy">Password Policy</label>
+                                <select id="passwordPolicy" class="form-control">
+                                    <option value="strong" selected>Strong (8+ chars, caps, numbers, symbols)</option>
+                                    <option value="medium">Medium (8+ chars, caps, numbers)</option>
+                                    <option value="basic">Basic (8+ chars)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>File Encryption</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Enable encryption for all files
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Allow users to set custom passwords
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Auto-lock after 15 minutes of inactivity
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn">Save Settings</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Create New User Modal -->
+    <div class="modal" id="createUserModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 class="modal-title">Create New User</h2>
+            <form id="createUserForm">
+                <div class="form-row">
+                    <label for="newUsername">Username</label>
+                    <input type="text" id="newUsername" class="form-control" required>
+                </div>
+                <div class="form-row">
+                    <label for="newPassword">Password</label>
+                    <input type="password" id="newPassword" class="form-control" required>
+                    <div class="password-requirements">
+                        Password must be at least 8 characters with uppercase, number, and symbol
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-meter" id="passwordStrength"></div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" class="form-control" required>
+                </div>
+                <div class="form-row">
+                    <label for="userRole">Role</label>
+                    <select id="userRole" class="form-control">
+                        <option value="user">User (Read, Write, Execute)</option>
+                        <option value="guest">Guest (Read, Execute only)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Create User</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- New Folder Modal -->
+    <div class="modal" id="newFolderModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 class="modal-title">Create New Folder</h2>
+            <form id="newFolderForm">
+                <div class="form-row">
+                    <label for="folderName">Folder Name</label>
+                    <input type="text" id="folderName" class="form-control" required>
+                </div>
+                <div class="form-row">
+                    <label>Security</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="passwordProtect"> Password protect this folder
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row" id="folderPasswordSection" style="display: none;">
+                    <label for="folderPassword">Password</label>
+                    <input type="password" id="folderPassword" class="form-control">
+                    <div class="password-requirements">
+                        Password must be at least 8 characters with uppercase, number, and symbol
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-meter" id="folderPasswordStrength"></div>
+                    </div>
+                </div>
+                <button type="submit" class="btn">Create Folder</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Password Prompt Modal -->
+    <div class="modal" id="passwordPromptModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 class="modal-title">Password Required</h2>
+            <form id="passwordPromptForm">
+                <div class="form-row">
+                    <p>This file is password protected. Please enter the password to access it.</p>
+                </div>
+                <div class="form-row">
+                    <label for="accessPassword">Password</label>
+                    <input type="password" id="accessPassword" class="form-control" required>
+                </div>
+                <button type="submit" class="btn">Access File</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const loginScreen = document.getElementById('loginScreen');
+        const dashboard = document.getElementById('dashboard');
+        const loginForm = document.getElementById('loginForm');
+        const currentUser = document.getElementById('currentUser');
+        const userRoleElement = document.getElementById('userRole');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const menuItems = document.querySelectorAll('.menu-item');
+        const panels = document.querySelectorAll('.panel');
+
+        // Modal elements
+        const createUserBtn = document.getElementById('createUserBtn');
+        const createUserModal = document.getElementById('createUserModal');
+        const newFolderBtn = document.getElementById('newFolderBtn');
+        const newFolderModal = document.getElementById('newFolderModal');
+        const passwordPromptModal = document.getElementById('passwordPromptModal');
+        const closeButtons = document.querySelectorAll('.close-btn');
+
+        // File explorer elements
+        const fileItems = document.querySelectorAll('.file-item');
+
+        // Password protection toggle
+        const passwordProtectCheckbox = document.getElementById('passwordProtect');
+        const folderPasswordSection = document.getElementById('folderPasswordSection');
+
+        // Create a map for our users (in a real app, this would be server-side)
+        const users = {
+            'admin': {
+                password: 'Admin@123', // Default password
+                role: 'Administrator'
+            }
+        };
+
+        // Login form submission
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Check if username exists and password matches
+            if (users[username] && users[username].password === password) {
+                loginScreen.style.display = 'none';
+                dashboard.style.display = 'block';
+
+                // Update user info
+                currentUser.textContent = username;
+                userRoleElement.textContent = users[username].role;
+            } else {
+                alert('Invalid username or password');
+            }
+        });
+
+        // Logout functionality
+        logoutBtn.addEventListener('click', function() {
+            dashboard.style.display = 'none';
+            loginScreen.style.display = 'block';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        });
+
+        // Menu navigation
+        menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove active class from all menu items
+                menuItems.forEach(i => i.classList.remove('active'));
+
+                // Add active class to clicked menu item
+                this.classList.add('active');
+
+                // Hide all panels
+                panels.forEach(panel => panel.classList.remove('active'));
+
+                // Show the corresponding panel
+                const panelId = this.getAttribute('data-panel');
+                document.getElementById(panelId).classList.add('active');
+            });
+        });
+
+        // Modal handling
+        createUserBtn.addEventListener('click', function() {
+            createUserModal.style.display = 'block';
+        });
+
+        newFolderBtn.addEventListener('click', function() {
+            newFolderModal.style.display = 'block';
+        });
+
+        // Close modals
+        closeButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                createUserModal.style.display = 'none';
+                newFolderModal.style.display = 'none';
+                passwordPromptModal.style.display = 'none';
+            });
+        });
+
+        // Handle password protection toggle
+        passwordProtectCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                folderPasswordSection.style.display = 'block';
+            } else {
+                folderPasswordSection.style.display = 'none';
+            }
+        });
+
+        // Password strength meter for new user password
+        const newPassword = document.getElementById('newPassword');
+        const passwordStrength = document.getElementById('passwordStrength');
+
+        newPassword.addEventListener('input', function() {
+            const password = this.value;
+            let strength = 0;
+
+            // Check length
+            if (password.length >= 8) strength += 1;
+
+            // Check for uppercase
+            if (/[A-Z]/.test(password)) strength += 1;
+
+            // Check for numbers
+            if (/[0-9]/.test(password)) strength += 1;
+
+            // Check for special characters
+            if (/[^A-Za-z0-9]/.test(password)) strength += 1;
+
+            // Update strength meter
+            passwordStrength.className = 'strength-meter';
+
+            if (strength === 1) {
+                passwordStrength.classList.add('weak');
+            } else if (strength === 2 || strength === 3) {
+                passwordStrength.classList.add('medium');
+            } else if (strength === 4) {
+                passwordStrength.classList.add('strong');
+            }
+        });
+
+        // Also apply to folder password
+        const folderPassword = document.getElementById('folderPassword');
+        const folderPasswordStrength = document.getElementById('folderPasswordStrength');
+
+        folderPassword.addEventListener('input', function() {
+            const password = this.value;
+            let strength = 0;
+
+            if (password.length >= 8) strength += 1;
+            if (/[A-Z]/.test(password)) strength += 1;
+            if (/[0-9]/.test(password)) strength += 1;
+            if (/[^A-Za-z0-9]/.test(password)) strength += 1;
+
+            folderPasswordStrength.className = 'strength-meter';
+
+            if (strength === 1) {
+                folderPasswordStrength.classList.add('weak');
+            } else if (strength === 2 || strength === 3) {
+                folderPasswordStrength.classList.add('medium');
+            } else if (strength === 4) {
+                folderPasswordStrength.classList.add('strong');
+            }
+        });
+
+        // File/folder click handling
+        fileItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Check if file/folder is locked
+                if (this.classList.contains('locked')) {
+                    passwordPromptModal.style.display = 'block';
+                } else {
+                    // If it's a folder, navigate to it
+                    const fileName = this.querySelector('.file-name').textContent;
+                    const fileIcon = this.querySelector('.file-icon');
+
+                    if (fileIcon.classList.contains('folder')) {
+                        // Update path bar
+                        document.querySelector('.path-text').textContent += '/' + fileName;
+                    } else {
+                        // For files, open/download them
+                        alert('Opening file: ' + fileName);
+                    }
+                }
+            });
+        });
+
+        // Create new user form submission
+        document.getElementById('createUserForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const username = document.getElementById('newUsername').value;
+            const password = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const role = document.getElementById('userRole').value;
+
+            // Validate passwords match
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            // Validate password strength
+            if (password.length < 8 || !/[A-Z]/.test(password) ||
+                !/[0-9]/.test(password) || !/[^A-Za-z0-9]/.test(password)) {
+                alert('Password does not meet requirements!');
+                return;
+            }
+
+            // Add user (in a real app, this would be server-side)
+            users[username] = {
+                password: password,
+                role: role === 'user' ? 'User' : 'Guest'
+            };
+
+            alert(`User ${username} created successfully!`);
+            createUserModal.style.display = 'none';
+
+            // Add to user table
+            const userTable = document.querySelector('#userManagement .data-table tbody');
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${username}</td>
+                <td>${role === 'user' ? 'User' : 'Guest'}</td>
+                <td>${new Date().toISOString().split('T')[0]}</td>
+                <td>Never</td>
+                <td><button class="small-btn">Edit</button></td>
+            `;

@@ -1,0 +1,24 @@
+{
+  "bfe6b9f1-5a21-45a2-9dcc-db7613afaec7": {
+    "user_id": "bfe6b9f1-5a21-45a2-9dcc-db7613afaec7",
+    "username": "admin",
+    "password_hash": "ldAC1r2GjDCTI3dK6lF2Ltb7jB0LXEZK3RG70pAFgUI=",
+    "salt": "EPD98mbjKBMxNVIQ+03ZSQ==",
+    "role": "admin",
+    "created_at": 1743244622,
+    "last_login": 0,
+    "mfa_enabled": false,
+    "mfa_secret": null
+  },
+  "88b30c71-0825-4953-8854-f1398420858b": {
+    "user_id": "88b30c71-0825-4953-8854-f1398420858b",
+    "username": "user1",
+    "password_hash": "9jf90PFqscUvc/yKBH9yAV1W8u4x0HMe7PNzPVcLpAA=",
+    "salt": "P25BoePzXh9owtVG3eO8ZQ==",
+    "role": "user",
+    "created_at": 1743244622,
+    "last_login": 0,
+    "mfa_enabled": false,
+    "mfa_secret": null
+  }
+}
