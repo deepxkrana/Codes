@@ -4,4 +4,50 @@ h2{
     padding: 10px;
     margin: 20px 0;
 }
-/* study what is css box model as homework */
+body{
+    background-color: aliceblue;
+}
+h2{
+    color: darkblue;
+}
+ p{
+    font-size: medium;
+    font: georgia;
+}
+#about{
+    background-color: lightcoral;
+    padding: 20px;
+    border-radius: 10px;;
+}
+.table{
+    width: 100%;
+    border-radius: 20px;
+}
+.h2{
+    color: darkgreen;
+    text-decoration: underline;
+    background-color: magenta;
+    border-radius: 20px;
+}
+.container1{
+    background-color: tomato;
+}
+.container2{
+    background-color: lightblue;
+}
+.container3{
+    background-color: lightgreen;
+}
+div.container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); gap: 2px;;
+}
+div.container div{
+    padding: 90px;
+    border: 2px solid black;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 30px;
+    text-align: center;
+
+}

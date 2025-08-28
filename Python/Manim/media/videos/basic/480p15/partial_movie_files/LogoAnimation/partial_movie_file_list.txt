@@ -1,0 +1,8 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/deepakrana/Desktop/VS Code/Python/Manim/media/videos/basic/480p15/partial_movie_files/LogoAnimation/1185818338_2231471960_223132457.mp4'
+file 'file:/Users/deepakrana/Desktop/VS Code/Python/Manim/media/videos/basic/480p15/partial_movie_files/LogoAnimation/624642324_3201849554_1912747518.mp4'
+file 'file:/Users/deepakrana/Desktop/VS Code/Python/Manim/media/videos/basic/480p15/partial_movie_files/LogoAnimation/624642324_3628727745_3921774117.mp4'
+file 'file:/Users/deepakrana/Desktop/VS Code/Python/Manim/media/videos/basic/480p15/partial_movie_files/LogoAnimation/624642324_3201849554_4069010903.mp4'
+file 'file:/Users/deepakrana/Desktop/VS Code/Python/Manim/media/videos/basic/480p15/partial_movie_files/LogoAnimation/624642324_1939904947_2093208860.mp4'
+file 'file:/Users/deepakrana/Desktop/VS Code/Python/Manim/media/videos/basic/480p15/partial_movie_files/LogoAnimation/624642324_2645669052_1719854805.mp4'
+file 'file:/Users/deepakrana/Desktop/VS Code/Python/Manim/media/videos/basic/480p15/partial_movie_files/LogoAnimation/624642324_2408024828_291563436.mp4'

@@ -1,0 +1,6 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/deepakrana/Desktop/VS Code/Python/Manim/media/videos/basic/480p15/partial_movie_files/FirebaseLogo/1185818338_556823374_223132457.mp4'
+file 'file:/Users/deepakrana/Desktop/VS Code/Python/Manim/media/videos/basic/480p15/partial_movie_files/FirebaseLogo/624642324_1839128356_1475381992.mp4'
+file 'file:/Users/deepakrana/Desktop/VS Code/Python/Manim/media/videos/basic/480p15/partial_movie_files/FirebaseLogo/624642324_1339824725_1628077709.mp4'
+file 'file:/Users/deepakrana/Desktop/VS Code/Python/Manim/media/videos/basic/480p15/partial_movie_files/FirebaseLogo/624642324_3815493901_1628077709.mp4'
+file 'file:/Users/deepakrana/Desktop/VS Code/Python/Manim/media/videos/basic/480p15/partial_movie_files/FirebaseLogo/624642324_1839128356_3224923094.mp4'
