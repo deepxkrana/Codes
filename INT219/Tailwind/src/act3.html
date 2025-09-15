@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Box Model</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="output.css">
+</head>
+<body class="bg-gray-300">
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold text-center mb-4">Tailwind CSS box Model</h1>
+        <div class="flex justify-center">
+            <div class="bg-blue-500 text-white p-4 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-semibold mb-4">Box model</h2>
+                <p class="">this is a box model example</p>
+                <div class="bg-white text-black p-4 mt-4 border-4 border-blue-700 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Inner Box</h3>
+                    <p>This box is inside the outer box.</p>
+                </div>
+                <div class="bg-white text-black p-4 mt-4 border-4 border-dashed border-blue-700 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-2">2nd Box</h3>
+                    <p>This is the 2nd box </p>
+                </div>
+                <div class="bg-white text-black p-4 mt-4 border rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-2">3nd Box</h3>
+                    <p>This is the 3rd box of the box model example</p>
+                </div>
+                <div class="bg-white text-black p-4 mt-4 border rounded-lg shadow-lg h-50 w-44">
+                    <h3 class="text-xl font-semibold mb-2">4th Box</h3>
+                    <p>This is the 4th box of the box model example</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mb-4">
+        <p class="mb-2 text-center">Object Cover</p>
+        <div class="w-48 h-32 border bg-white mx-auto">
+            <img src="cat-3059075_1280.jpg" class="w-full h-full object-cover">
+        </div>
+    </div>
+    <div class="mb-4">
+        <p class="mb-2 text-center">Object Fill</p>
+        <div class="w-48 h-32 border bg-white mx-auto">
+            <img src="cat-3059075_1280.jpg" class="w-full h-full object-fill">
+        </div>
+    </div>
+     <div class="mb-4">
+        <p class="mb-2 text-center">Object None</p>
+        <div class="w-48 h-32 border bg-white mx-auto">
+            <img src="cat-3059075_1280.jpg" class="w-full h-full object-none">
+        </div>
+    </div>
+     <div class="mb-4">
+        <p class="mb-2 text-center">Object top</p>
+        <div class="w-48 h-32 border bg-white mx-auto">
+            <img src="cat-3059075_1280.jpg" class="w-full h-full object-top">
+        </div>
+    </div>
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold text-center mb-4">Tailwind CSS box Model</h1>
+        <div class="flex justify-center">
+            <div class="bg-blue-600 text-white p-4 rounded-lg shadow-lg w-full ">
+                <div class="bg-white text-black p-4 mt-4 border-4 border-blue-900 rounded-lg shadow-md w-full">
+                    <h1 class=" text-center text-xl font-semibold ">Welcome</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="relative w-64 h-64">
+        <div class="absolute w-40 h-40 bg-blue-500 square-full top-10 left-10 z-0"></div>
+        <div class="absolute w-40 h-40 bg-red-500 square-full top-20 left-40 z-10"></div>
+        <div class="absolute w-40 h-40 bg-green-500 square-full top-40 left-60 z-20"></div>
+    </div> -->
+    <div class="grid grid-cols-3 gap-4 h-80 w-full">
+        <div class="bg-blue-500 p-4">1</div>
+        <div class="bg-red-500 p-4">2</div>
+        <div class="bg-green-500 p-4">3</div>
+    </div>
+    <br>
+    <div class="grid grid-row-3 gap-4 h-80 w-full">
+        <div class="bg-blue-500 p-4">1</div>
+        <div class="bg-red-500 p-4">2</div>
+        <div class="bg-green-500 p-4">3</div>
+    </div>
+    <div class="mt-4 p-4">
+        <form class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold mb-4 text-center">Contact Us</h2>
+            <label class="block mb-2 font-medium" for="name">Name</label>
+            <input type="text" id="name" name="name" class="w-full p-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your Name" required>
+            <label class="block mb-2 font-medium" for="email">Email</label>
+            <input type="email" id="email" name="email" class="w-full p-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="you@example.com" required>
+            <label class="block mb-2 font-medium" for="message">Message</label>
+            <textarea id="message" name="message" rows="4" class="w-full p-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your Message" required></textarea>
+            <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition duration-300">Submit</button>
+        </form>
+    </div>
+    <div class="mt-4 p-4">
+        <div class="container mx-auto">
+            <h1 class="text-3xl font-bold text-center mb-4">Gradient CSS</h1>
+            <div class="flex justify-center">
+                <div class="bg-gradient-to-r from-yellow-500 via-pink-500 to-red-500 text-white p-4 rounded-lg shadow-lg w-80 h-96">
+                <h2 class="text-2xl font-semibold mb-4 text-center">Gradient Background</h2>
+                <div class="bg-white text-black p-4 mt-4 ml-4 mr-4 border-4 border-red-400 rounded-lg w-42 h-32 mx-auto shadow-[-5px_5px_15px_rgba(0,0,0,0.2)]">
+                    <h3 class="text-xl font-semibold mb-2">Inner Box</h3>
+                    <p>This box is inside the outer box.</p>
+                </div>
+                <div class="bg-white text-black p-4 mt-4 ml-4 mr-4 border-4 border-red-400 rounded-lg w-42 h-32 mx-auto shadow-[-5px_5px_15px_rgba(0,0,0,0.2)]">
+                    <h3 class="text-xl font-semibold mb-2">2nd Box</h3>
+                    <p>This is the 2nd box </p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
