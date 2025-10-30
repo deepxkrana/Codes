@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation Card</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script async src="https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="container mx-auto p-8 bg-white rounded-lg shadow-lg text-center max-w-md">
+        <h2 class="text-2xl font-bold mb-4">Geolocation API Card</h2>
+        <p class="mb-6 text-gray-600">Click the button below to get your current geographical coordinates.</p>
+        <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold px-6 py-2 rounded-full transition duration-300" onclick="getLocation()">
+            Show My Location
+        </button>
+
+        <!-- Geolocation Card -->
+        <div id="locationCard" class="hidden mt-6 bg-gray-50 p-6 rounded-lg shadow-inner text-left">
+            <h3 class="text-xl font-semibold mb-3 text-gray-800">Your Current Location:</h3>
+            <p class="text-gray-700"><strong>Latitude:</strong> <span id="latitude" class="font-mono"></span></p>
+            <p class="text-gray-700"><strong>Longitude:</strong> <span id="longitude" class="font-mono"></span></p>
+        </div>
+
+        <!-- Google Map -->
+        <div id="map" class="hidden mt-6 h-80 w-full rounded-lg shadow-inner"></div>
+
+        <p id="error" class="text-red-500 mt-4 font-semibold"></p>
+    </div>
+
+    <script>
+        const locationCard = document.getElementById('locationCard');
+        const latitudeSpan = document.getElementById('latitude');
+        const longitudeSpan = document.getElementById('longitude');
+        const errorP = document.getElementById('error');
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                // Clear previous errors and hide card
+                errorP.textContent = '';
+                locationCard.classList.add('hidden');
+                // Fetch position
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                errorP.textContent = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+
+            latitudeSpan.textContent = lat;
+            longitudeSpan.textContent = lng;
+            locationCard.classList.remove('hidden');
+
+            const userLocation = { lat: lat, lng: lng };
+            const mapDiv = document.getElementById('map');
+            mapDiv.classList.remove('hidden');
+
+            const map = new google.maps.Map(mapDiv, {
+                zoom: 15,
+                center: userLocation,
+            });
+
+            new google.maps.Marker({
+                position: userLocation,
+                map: map,
+                title: "Your Location"
+            });
+        }
+
+        function showError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    errorP.textContent = "User denied the request for Geolocation."
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    errorP.textContent = "Location information is unavailable."
+                    break;
+                case error.TIMEOUT:
+                    errorP.textContent = "The request to get user location timed out."
+                    break;
+                case error.UNKNOWN_ERROR:
+                    errorP.textContent = "An unknown error occurred."
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

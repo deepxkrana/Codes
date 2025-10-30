@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-md">
+        <!-- The comment from your original file describing the task -->
+        <!-- 
+            Create a web page in which contact us form is present. try to use all POP UP boxes on the form
+            button submit should display (form is submitted), (do you want to confirm details) and username should be confirmed by prompt pop up box 
+        -->
+        <form id="contactForm" class="bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Contact Us</h2>
+            
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                    Name
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Your Name" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                    Email
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="you@example.com" required>
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="message">
+                    Message
+                </label>
+                <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" rows="4" placeholder="Your message..." required></textarea>
+            </div>
+
+            <div class="flex items-center justify-center">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            // Prevent the form from actually submitting
+            event.preventDefault();
+
+            // 1. Prompt for username
+            const username = prompt("Please enter your username to confirm:");
+
+            if (username) { // Check if the user entered something
+                // 2. Confirm details
+                const wantsToConfirm = confirm("Do you want to confirm the details, " + username + "?");
+
+                if (wantsToConfirm) {
+                    // 3. Alert on submission
+                    alert("Form is submitted successfully!");
+                    // Here you would typically send the form data to a server.
+                    // For this example, we'll just log it.
+                    console.log("Form submitted by:", username);
+                    // Optionally, you can reset the form
+                    event.target.reset();
+                } else {
+                    alert("Submission cancelled.");
+                }
+            } else {
+                alert("Username is required to submit the form. Submission cancelled.");
+            }
+        });
+    </script>
+</body>
+</html>

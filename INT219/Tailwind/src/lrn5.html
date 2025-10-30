@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <header class="bg-red-600 text-white p-4 shadow-md">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl font-bold">Blood Donation Website</h1>
+        </div>
+    </header>
+    <main class="container mx-auto p-4 md:p-8">
+        <div class="text-center mb-8">
+            <h2 class="text-2xl font-semibold mb-2">Welcome to the Blood Donation Website</h2>
+            <p class="text-gray-600 mb-4">Your contribution can save lives. Join us in our mission to ensure that blood is available for those in need.</p>
+        </div>
+
+        <!-- Registration Form Section -->
+        <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Register to Donate</h2>
+            <form id="donationForm">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                        Full Name
+                    </label>
+                    <input onclick="alert('Thank You For Considering.')" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-red-500" id="name" type="text" placeholder="Your Name" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                        Email Address
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-red-500" id="email" type="email" placeholder="you@example.com" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="blood-group">
+                        Blood Group
+                    </label>
+                    <select class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-red-500" id="blood-group" required>
+                        <option value="" disabled selected>-- Select your blood group --</option>
+                        <option>A+</option> <option>A-</option> <option>B+</option> <option>B-</option> <option>AB+</option> <option>AB-</option> <option>O+</option> <option>O-</option>
+                    </select>
+                </div>
+                <div class="flex items-center justify-center">
+                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full focus:outline-none focus:shadow-outline transition duration-300" type="submit">
+                        Register Now
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Image Gallery Section -->
+        <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg mt-8">
+            <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Be a Hero - Save Lives</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?q=80&w=1974" alt="People at a blood donation drive" class="w-full h-full object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?q=80&w=1974" alt="Doctor holding a blood bag" class="w-full h-full object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=2070" alt="Hospital corridor" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Get the form element
+        const donationForm = document.getElementById('donationForm');
+
+        // Add an 'onsubmit' event listener to the form
+        donationForm.addEventListener('submit', function(event) {
+            // Prevent the form from actually submitting and reloading the page
+            event.preventDefault();
+
+            // Show a confirmation alert
+            alert('Thank you for registering! Your form has been submitted.');
+
+            // Optional: You can reset the form fields after submission
+            donationForm.reset();
+        });
+    </script>
+<!-- </body>
+</html> -->

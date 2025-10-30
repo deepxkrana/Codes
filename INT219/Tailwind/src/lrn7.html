@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/INT219/Tailwind/jquery-3.7.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .myclass{
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <p id="pid" class="rounded-2xl h-4 w-auto mb-1 bg-amber-300">Click me!</p>
+    <div id="myid">This is a Simple division</div>
+    <div class="myclass">This is Class selector example</div>
+    <div class="new">This is new Class selector example</div>
+    <script>
+        //types of jquery selectors
+        //1. element selector
+        // $('p').click(function(){
+        //     console.log("you clicked on paragraph");
+        //     $(this).hide();
+        // })
+        $(document).ready(function(){
+            $('p').css('color','red')
+            //2. id selector
+            $('#myid').css('background-color','yellow');
+            //3. class selector
+            $('.myclass').addClass('new');
+            $('#pid').click(function(){
+                alert("Button Was Clicked");
+            })
+        })
+    </script>
+</body>
+</html>

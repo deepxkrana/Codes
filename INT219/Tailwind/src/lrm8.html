@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="outer" style="padding:40px; background-color: aqua;">
+        <div id="middle" style="padding:40px; background-color: yellow;">
+            <div id="inner" style="padding:40px; background-color: pink;">
+                Inner Div
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("inner").addEventListener("click", function(event) {
+            alert("Inner Div Clicked");
+            // event.stopPropagation(); // Stop the event from bubbling up
+        });
+
+        document.getElementById("middle").addEventListener("click", function() {
+            alert("Middle Div Clicked");
+        });
+
+        document.getElementById("outer").addEventListener("click", function() {
+            alert("Outer Div Clicked");
+        });
+    </script>
+</body>
+</html>

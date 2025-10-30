@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/INT219/Tailwind/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div id="myid">This is a First Simple division</div>
+    <div id="newid">This is Second Division</div>
+    <div id="box">Jquery Effects</div>
+    <button id="btn">Hide</button>
+    <button id="btn2">Show</button>
+    <button id="btn3">Toggle</button>
+    <button id="btn4">FadeIn</button>
+    <button id="btn5">FadeOut</button>
+    <button id="btn6">SlideUp</button>
+    <button id="btn7">SlideDown</button>
+    <button id="btn8">Remove</button>
+    <script>
+        $('#myid').click(function(){
+            alert("Button Was Clicked");
+            $(this).css('background-color','red');
+        })
+        // $('#newid').on('mouseenter',function(){
+        //     alert("You hovered over the division");
+        // })
+        // $('#newid').hover(function(){
+        //     alert("You hovered over the division");
+        // })
+        $(document).ready(function(){
+            $('#btn').click(function(){
+                $('#box').hide()
+            })
+            $('#btn2').click(function(){
+                $('#box').show()
+            })
+            $('#btn3').click(function(){
+                $('#box').toggle()
+            })
+            $('#btn4').click(function(){
+                $('#box').fadeIn(1500)
+            })
+            $('#btn5').click(function(){
+                $('#box').fadeOut(1500)
+            })
+            $('#btn6').click(function(){
+                $('#box').slideUp()
+            })
+            $('#btn7').click(function(){
+                $('#box').slideDown()
+            })
+            $('#btn8').click(function(){
+                $('#box').remove()
+            })
+            
+        })
+        function changeImage(){
+            $('#img').attr()
+        }
+    </script>
+</body>
+</html>

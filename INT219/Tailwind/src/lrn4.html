@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #box{
+        width: 200px;
+        height: 100px;
+        border: 2px solid black;
+        text-align: center;
+        line-height: 100px;
+        margin-bottom: 10px;
+        background-color: blueviolet;
+    }
+</style>
+<body>
+    <h2>Simple DOM Manipulation</h2>
+    <div id="box" >Hello</div>
+    <button onclick="changeText()">Change Text</button>
+    <button onclick="changeColor()">Change Color</button>
+    <button onclick="togglebox()">Toggle Box</button>
+
+    <script>
+        function changeText(){
+            document.getElementById("box").innerText="TEXT CHANGED!";
+
+        }
+        function changeColor(){
+            document.getElementById("box").style.backgroundColor="lightblue";
+        }
+        function togglebox(){
+            let box = document.getElementById("box")
+            box.style.display= box.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

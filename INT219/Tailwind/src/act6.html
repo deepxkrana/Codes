@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/INT219/Tailwind/jquery-3.7.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="bg-white p-8 rounded-2xl w-1/3">
+        <h1 class="font-bold text-3xl text-center">Dynamic Task Manager</h1>
+        <div class="mt-4 flex">
+            <input type="text" id="taskInput" class="border border-gray-300 rounded-lg p-2 mt-4 w-full" placeholder="Enter a new task">
+            <button id="addTaskBtn" class="bg-blue-500 text-white rounded-lg px-2 mx-2 mt-4 hover:bg-blue-600">Add Task</button>
+        </div>
+        <div id="tasksContainer" class="mt-4 space-y-2">
+            <!-- Tasks will be added here -->
+        </div>
+        <script>
+            $(document).ready(function(){
+                $('#addTaskBtn').click(function(){
+                    const taskText = $('#taskInput').val().trim();
+                    if(taskText !== ''){
+                        const taskItem = $('<div></div>').addClass('p-2 bg-gray-200 rounded-lg flex justify-between items-center');
+                        const taskTextSpan = $('<span></span>').text(taskText);
+                        const deleteBtn = $('<button></button>').text('Delete').addClass('bg-red-500 text-white rounded-lg px-4 py-2 hover:bg-red-600');
+                        deleteBtn.click(function(){
+                            taskItem.remove();
+                        });
+                        taskItem.append(taskTextSpan, deleteBtn);
+                        $('#tasksContainer').append(taskItem);
+                        $('#taskInput').val('');
+                    }
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>

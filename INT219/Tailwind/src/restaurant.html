@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Taj Place</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans text-gray-800">
+
+    <!-- 1. Background image with opacity -->
+    <div class="fixed inset-0 -z-10 bg-[url('restraunt.jpg')] bg-cover bg-center opacity-80"></div>
+
+    <div class="container mx-auto mt-5 max-w-6xl rounded-lg bg-white/80 p-5">
+        <h1 class="text-center text-4xl font-bold text-stone-800 mb-2">Welcome to The Taj</h1>
+        <h2 class="text-center text-3xl font-semibold text-stone-800">Our Specials for Pickup</h2>
+
+        <!-- 2. Dishes section -->
+        <div id="menu" class="mb-10 mt-8 flex flex-wrap justify-center gap-5">
+            <div class="w-64 rounded-lg border border-gray-300 bg-white p-4 text-center shadow-lg">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400" alt="Pizza" class="h-48 w-full rounded-md object-cover">
+                <h3 class="mt-2 text-xl font-semibold">Margherita Pizza</h3>
+                <p class="mt-2 text-lg font-bold text-green-700">499.00</p>
+            </div>
+            <div class="w-64 rounded-lg border border-gray-300 bg-white p-4 text-center shadow-lg">
+                <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400" alt="Salad" class="h-48 w-full rounded-md object-cover">
+                <h3 class="mt-2 text-xl font-semibold">Fresh Garden Salad</h3>
+                <p class="mt-2 text-lg font-bold text-green-700">399.00</p>
+            </div>
+            <div class="w-64 rounded-lg border border-gray-300 bg-white p-4 text-center shadow-lg">
+                <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400" alt="Pancakes" class="h-48 w-full rounded-md object-cover">
+                <h3 class="mt-2 text-xl font-semibold">Blueberry Pancakes</h3>
+                <p class="mt-2 text-lg font-bold text-green-700">299.00</p>
+            </div>
+        </div>
+
+        <!-- 3. Booking button and form -->
+        <div class="p-5 text-center">
+            <button id="open-booking" class="rounded-md bg-red-500 px-8 py-4 text-lg text-white transition hover:bg-red-600">Book a Table</button>
+            <div id="bookingform" class="mt-5 hidden rounded-lg border-2 border-dashed border-stone-700 bg-gray-50 p-5">
+                <h2 class="text-2xl font-bold text-stone-800">Table Reservation</h2>
+                <!-- 4. Form with fields -->
+                <form id="booking-form">
+                    <div class="mb-4 text-left"><label for="name" class="mb-1 block font-medium">Name:</label><input type="text" id="name" class="w-full rounded-md border border-gray-300 p-2" required></div>
+                    <div class="mb-4 text-left"><label for="address" class="mb-1 block font-medium">Address:</label><input type="text" id="address" class="w-full rounded-md border border-gray-300 p-2" required></div>
+                    <div class="mb-4 text-left"><label for="email" class="mb-1 block font-medium">Email:</label><input type="email" id="email" class="w-full rounded-md border border-gray-300 p-2" required></div>
+                    <div class="mb-4 text-left"><label for="contact" class="mb-1 block font-medium">Contact:</label><input type="tel" id="contact" class="w-full rounded-md border border-gray-300 p-2" required></div>
+                    <div class="mb-4 text-left"><label for="instructions" class="mb-1 block font-medium">Any Special Instructions:</label><textarea id="instructions" rows="3" class="w-full rounded-md border border-gray-300 p-2"></textarea></div>
+                    <button type="submit" id="submit-booking" class="rounded-md bg-green-500 px-5 py-2 text-white">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            // 3. On button click, it should open a booking table form.
+            $('#open-booking').click(function(){
+                $('#bookingform').slideDown(); // Show the form with a slide effect
+            });
+
+            // 5. Apply onMouse event for the Submit button.
+            // Tailwind's hover: classes handle this, but we can also do it with jQuery.
+            $('#submit-booking').hover(
+                function() { $(this).removeClass('bg-green-500').addClass('bg-green-600'); }, // onMouseOver
+                function() { $(this).removeClass('bg-green-600').addClass('bg-green-500'); }  // onMouseOut
+            );
+
+            // Handle the form submission
+            $('#booking-form').submit(function(event){
+                event.preventDefault(); // Prevent the form from actually submitting
+
+                // 6. On click, alert should say "welcome, table booked"
+                alert("Welcome, your table is booked!");
+
+                // 7. Apply DOM manipulation on submit, changing text to "Booking Done"
+                $('#submit-booking').text('Booking Done!').prop('disabled', true).removeClass('bg-green-600 bg-green-500').addClass('bg-gray-400 cursor-not-allowed');
+
+                // Slide the form up after a short delay
+                $('#bookingform').delay(500).slideUp();
+            });
+        });
+    </script>
+
+</body>
+</html>

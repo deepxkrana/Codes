@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="start()">Start</button>
+    <button onclick="stop()">Stop</button>
+    <p id="abc"> </p>
+    <script>
+        var i;
+        function start(){
+            i=setInterval(showDate,1000);
+        }
+        function showDate(){
+            document.getElementById("abc").innerHTML= new Date();
+            document.getElementById("abc").style.cssText="font-size:50px; color:blue; font-style:italic;";
+        }
+        function stop(){
+            clearInterval(i);
+        }
+    </script>
+</body>
+</html>

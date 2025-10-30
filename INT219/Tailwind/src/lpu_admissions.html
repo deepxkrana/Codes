@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LPU Admissions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Header -->
+    <header class="bg-blue-800 text-white p-4 shadow-md">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl font-bold">Lovely Professional University Admissions</h1>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <!-- Registration Form Section -->
+        <div class="bg-white p-8 rounded-lg shadow-lg mb-8 max-w-2xl mx-auto">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center">Registration Form</h2>
+            <form id="registrationForm">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                        Full Name
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500" id="name" type="text" placeholder="Your Name" required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                        Email Address
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500" id="email" type="email" placeholder="you@example.com" required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">
+                        Phone Number
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500" id="phone" type="tel" placeholder="123-456-7890" required>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="course">
+                        Select Course
+                    </label>
+                    <select id="course" class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option>B.Tech - Computer Science and Engineering (CSE)</option>
+                        <option>B.Tech - Mechanical Engineering</option>
+                        <option>BBA - Bachelor of Business Administration</option>
+                        <option>MBA - Master of Business Administration</option>
+                    </select>
+                </div>
+
+                <div class="flex items-center justify-center">
+                    <button class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-6 rounded-full focus:outline-none focus:shadow-outline transition duration-300" type="submit">
+                        Register Now
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- CSE Sub-domains Section -->
+        <div class="bg-white p-8 rounded-lg shadow-lg max-w-2xl mx-auto">
+            <div class="flex justify-between items-center">
+                <h2 class="text-2xl font-bold text-gray-800">CSE Admissions</h2>
+                <button id="toggleCseButton" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline transition duration-300">
+                    Toggle Sub-domains
+                </button>
+            </div>
+            
+            <div id="cseSubdomains" class="hidden mt-6 border-t pt-4">
+                <h3 class="text-xl font-semibold mb-3 text-gray-700">Explore CSE Specializations:</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-600">
+                    <li>Artificial Intelligence & Machine Learning</li>
+                    <li>Cybersecurity & Digital Forensics</li>
+                    <li>Data Science & Big Data Analytics</li>
+                    <li>Cloud Computing & DevOps</li>
+                    <li>Full Stack Web Development</li>
+                    <li>Game Development</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // 1. DOM manipulation for the registration form submission
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+
+            // 3. Show an alert that the form is submitted
+            alert('Your form is submitted successfully!');
+
+            // Optional: Reset the form fields after submission
+            event.target.reset();
+        });
+
+        // 2. DOM manipulation to toggle the CSE sub-domains division
+        document.getElementById('toggleCseButton').addEventListener('click', function() {
+            const cseSubdomainsDiv = document.getElementById('cseSubdomains');
+            // Toggle the 'hidden' class to show/hide the div
+            cseSubdomainsDiv.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
