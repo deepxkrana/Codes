@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .card{
+            border: 10px solid red;
+            border-radius: 10px;
+            padding: 15px;
+            max-width : 300px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="productcard" class="card"></div>
+    <script>
+        const productJSON = `{
+        "name":"laptop",
+        "brand":"ASUS",
+        "price":"40000",
+        "features": ["Ram 4g", "Windows 11"]
+    }`
+    const product = JSON.parse(productJSON)
+    const productHTML = `<h2>${product.name}</h2>
+        <p>Brand : ${product.brand}</p>
+        <p>Price : ${product.price}</p>
+        <p>Features : ${product.features.join(", ")}</p>`
+        document.getElementById("productcard").innerHTML = productHTML
+    </script>
+</body>
+</html>
