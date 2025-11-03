@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <script> //JSON Object
+        const studt = {
+            name: "abc",
+            roll: 24,
+            subject: "CSE"
+        }
+        const employee = {
+            name: "xyz",
+            empid: 23,
+            department: "Backend",
+            salary: "60K"
+        }
+        console.log(employee.department)
+        console.log(employee.empid)
+        console.log(studt.name)
+        const array=["RED", "GREEN", "BLUE"]
+        console.log(array[2])
+        const books=[
+            {title: "BOOK1", author: "A"},
+            {title: "BOOK2", author: "B"},
+            {title: "BOOK3", author: "C"}
+        ]
+        console.log(books[0].title)
+        const movie=[
+            {title: "MOV1", director: "A", type: "Superhit"},
+            {title: "MOV2", director: "B", type: "hit"},
+            {title: "MOV3", director: "C", type: "hit"},
+            {title: "MOV4", director: "D", type: "Flop"},
+            {title: "MOV5", director: "E", type: "Superhit"},
+        ]
+        console.log(movie[0])
+        const car={
+            brand: "Maruti",
+            model:{
+                name: "ABC",
+                year: 2020
+            }
+        }
+        console.log(car.brand)
+        console.log(car.model.name)
+        const student = {
+            name: "ABC1",
+            Batch: "K23",
+            subjects: {
+                firstyear: {
+                    sub1: "Maths",
+                    sub2: "Physics"
+                },
+                secondyear: {
+                    sub1: "Chemistry",
+                    sub2: "Biology"
+                },
+                thirdyear: {
+                    sub1: "CSE",
+                    sub2: "IT"
+                }
+            }
+        }
+        console.log(student.subjects.secondyear.sub1)
+        const obj1 ={name: "abc", age:23}
+        const str =JSON.stringify(obj1)
+        console.log(str)
+    </script>
+</body>
+</html>
