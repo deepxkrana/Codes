@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orange Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        /* A little custom style for the active filter */
+        .category-link.active {
+            background-color: #f97316; /* orange-500 */
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-orange-50 font-sans">
+
+    <!-- Header -->
+    <header class="bg-orange-500 text-white shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <h1 class="text-3xl font-bold">The Orange Blog</h1>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="hover:text-orange-200">Home</a>
+                    <a href="#" class="hover:text-orange-200">Travel</a>
+                    <a href="#" class="hover:text-orange-200">Lifestyle</a>
+                    <a href="#" class="hover:text-orange-200">About</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Welcome Message -->
+    <div class="text-center pt-12 pb-8">
+        <h2 class="text-4xl font-bold text-orange-400">Welcome to The Orange Blog</h2>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-6 pb-10">
+        <div class="lg:flex lg:space-x-10">
+
+            <!-- Blog Posts Section -->
+            <main class="lg:w-2/3">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Latest Posts</h2>
+                <div id="posts-container" class="space-y-8">
+                    <!-- Blog Post 1 -->
+                    <div class="blog-post bg-white rounded-lg shadow-md overflow-hidden" data-category="tech">
+                        <img src="https://via.placeholder.com/800x400/fb923c/ffffff?text=Tech+Innovation" alt="Blog post image" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm text-orange-500 font-semibold">Tech</span>
+                            <h3 class="text-2xl font-bold text-gray-800 mt-2">The Future of AI in Web Development</h3>
+                            <p class="text-gray-600 mt-4">Discover how artificial intelligence is revolutionizing the way we build and interact with websites, from automated coding to personalized user experiences.</p>
+                            <a href="#" class="inline-block mt-4 text-orange-600 hover:text-orange-800 font-semibold">Read More &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 2 -->
+                    <div class="blog-post bg-white rounded-lg shadow-md overflow-hidden" data-category="travel">
+                        <img src="https://via.placeholder.com/800x400/fdba74/ffffff?text=Exotic+Travel" alt="Blog post image" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm text-orange-500 font-semibold">Travel</span>
+                            <h3 class="text-2xl font-bold text-gray-800 mt-2">Top 5 Destinations for Your Summer Holiday</h3>
+                            <p class="text-gray-600 mt-4">Looking for adventure? Here are five breathtaking locations that should be on every traveler's bucket list for this summer season.</p>
+                            <a href="#" class="inline-block mt-4 text-orange-600 hover:text-orange-800 font-semibold">Read More &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 3 -->
+                    <div class="blog-post bg-white rounded-lg shadow-md overflow-hidden" data-category="lifestyle">
+                        <img src="https://via.placeholder.com/800x400/fed7aa/333333?text=Healthy+Lifestyle" alt="Blog post image" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm text-orange-500 font-semibold">Lifestyle</span>
+                            <h3 class="text-2xl font-bold text-gray-800 mt-2">Simple Habits for a More Productive Life</h3>
+                            <p class="text-gray-600 mt-4">Boost your daily productivity with these easy-to-implement habits. Small changes can lead to significant improvements in your focus and well-being.</p>
+                            <a href="#" class="inline-block mt-4 text-orange-600 hover:text-orange-800 font-semibold">Read More &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Sidebar -->
+            <aside class="lg:w-1/3 mt-10 lg:mt-14">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">More</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="category-link block px-4 py-2 rounded-md text-gray-700 hover:bg-orange-100 active" data-filter="all">Visit Places</a></li>
+                        <li><a href="#" class="category-link block px-4 py-2 rounded-md text-gray-700 hover:bg-orange-100" data-filter="tech">Register as Traveller</a></li>
+                        <li><a href="#" class="category-link block px-4 py-2 rounded-md text-gray-700 hover:bg-orange-100" data-filter="travel">About Page</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-orange-600 text-white mt-12">
+        <div class="container mx-auto px-6 py-4 text-center">
+            <p>&copy; 2025 The Orange Post. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function(){
+            // Category filter logic
+            $('.category-link').on('click', function(e) {
+                e.preventDefault();
+
+                // Style the active link
+                $('.category-link').removeClass('active');
+                $(this).addClass('active');
+
+                const filter = $(this).data('filter');
+
+                if (filter === 'all') {
+                    // Show all posts with a fade effect
+                    $('.blog-post').fadeIn(400);
+                } else {
+                    // Hide all posts instantly
+                    $('.blog-post').hide();
+                    // Show only the posts that match the filter, with a fade effect
+                    $('.blog-post[data-category="' + filter + '"]').fadeIn(400);
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexashop - About Us</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .dotted-line { border-bottom: 2px dotted #e0e0e0; }
+    </style>
+</head>
+<body class="text-gray-700">
+
+    <nav class="bg-white border-b border-dotted border-gray-300">
+        <div class="container mx-auto px-6 py-6 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2">
+                <div class="bg-gray-900 text-white w-10 h-10 flex items-center justify-center font-bold text-xl hexagon-shape clip-path-polygon">H</div>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-bold tracking-wide uppercase text-gray-900">Hexashop</span>
+                    <span class="text-[10px] tracking-widest text-gray-400 uppercase">Online Shopping</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase text-gray-800">
+                <a href="#" class="hover:text-gray-500">Home</a>
+                <a href="#" class="hover:text-gray-500">Men's</a>
+                <a href="#" class="hover:text-gray-500">Women's</a>
+                <a href="#" class="hover:text-gray-500">Kid's</a>
+                <a href="#" class="text-gray-400">Pages <i class="fas fa-chevron-down text-xs ml-1"></i></a>
+                <a href="#" class="text-gray-400">Features <i class="fas fa-chevron-down text-xs ml-1"></i></a>
+                <a href="#" class="hover:text-gray-500">Explore</a>
+            </div>
+
+            <button class="md:hidden text-gray-800 text-2xl" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <header class="relative w-full h-[400px] flex items-center justify-center bg-gray-900 overflow-hidden">
+        <img src="restraunt.jpg" alt="Background" class="absolute inset-0 w-full h-full object-cover opacity-40">
+        
+        <div class="relative z-10 text-center text-white px-4">
+            <h1 class="text-5xl font-bold mb-2">About Our Company</h1>
+            <p class="italic font-light text-lg">Awesome, clean & creative HTML5 Template</p>
+        </div>
+    </header>
+
+    <section class="container mx-auto px-6 py-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=2070&auto=format&fit=crop" alt="Store Front" class="w-full h-auto shadow-sm">
+            </div>
+
+            <div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">About Us & Our Skills</h2>
+                <p class="text-sm leading-relaxed text-gray-500 mb-6">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+                </p>
+                <div class="flex items-start gap-4 mb-6">
+                    <i class="fas fa-quote-left text-3xl text-gray-800"></i>
+                    <p class="italic font-medium text-gray-800 text-sm">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiuski smod kon tempor incididunt ut labore.
+                    </p>
+                </div>
+                <p class="text-sm leading-relaxed text-gray-500 mb-8">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+                </p>
+                
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-gray-600 transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-gray-600 transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-gray-600 transition"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-gray-600 transition"><i class="fab fa-behance"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto px-6 py-10">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-2">Our Amazing Team</h2>
+            <p class="text-sm italic text-gray-400">Details to details is what makes Hexashop different from the other themes.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center group">
+                <div class="relative overflow-hidden mb-6">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop" alt="Team 1" class="w-full h-[350px] object-cover hover:opacity-90 transition">
+                    </div>
+                <h3 class="text-xl font-bold text-gray-900">Priyanshu Sharma</h3>
+                <p class="text-sm text-gray-500">Product Caretaker</p>
+            </div>
+             <div class="text-center group">
+                <div class="relative overflow-hidden mb-6">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop" alt="Team 2" class="w-full h-[350px] object-cover hover:opacity-90 transition">
+                </div>
+                <h3 class="text-xl font-bold text-gray-900">Deepak Rana</h3>
+                <p class="text-sm text-gray-500">Product Caretaker</p>
+            </div>
+             <div class="text-center group">
+                <div class="relative overflow-hidden mb-6">
+                    <img src="https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?q=80&w=1000&auto=format&fit=crop" alt="Team 3" class="w-full h-[350px] object-cover hover:opacity-90 transition">
+                </div>
+                <h3 class="text-xl font-bold text-gray-900">Robin Soni</h3>
+                <p class="text-sm text-gray-500">Product Caretaker</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto px-6 py-20 dotted-line">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-2">Our Services</h2>
+            <p class="text-sm italic text-gray-400">Details to details is what makes Hexashop different from the other themes.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 shadow-[0_5px_30px_rgba(0,0,0,0.05)] border border-gray-100 flex flex-col items-center text-center">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Shubham Kumar</h3>
+                <p class="text-sm text-gray-500 mb-8">Lorem ipsum dolor sit amet, consecteturti adipiscing elit, sed do eiusmod temp incididunt ut labore, et dolore quis ipsum suspend.</p>
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=500&auto=format&fit=crop" class="w-full h-40 object-cover" alt="Service 1">
+            </div>
+             <div class="bg-white p-8 shadow-[0_5px_30px_rgba(0,0,0,0.05)] border border-gray-100 flex flex-col items-center text-center">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Udit Maurya</h3>
+                <p class="text-sm text-gray-500 mb-8">Lorem ipsum dolor sit amet, consecteturti adipiscing elit, sed do eiusmod temp incididunt ut labore, et dolore quis ipsum suspend.</p>
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=500&auto=format&fit=crop" class="w-full h-40 object-cover" alt="Service 2">
+            </div>
+             <div class="bg-white p-8 shadow-[0_5px_30px_rgba(0,0,0,0.05)] border border-gray-100 flex flex-col items-center text-center">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Debargha Debnath</h3>
+                <p class="text-sm text-gray-500 mb-8">Lorem ipsum dolor sit amet, consecteturti adipiscing elit, sed do eiusmod temp incididunt ut labore, et dolore quis ipsum suspend.</p>
+                <img src="https://images.unsplash.com/photo-1574634534894-89d7576c8259?q=80&w=500&auto=format&fit=crop" class="w-full h-40 object-cover" alt="Service 3">
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto px-6 py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">By Subscribing To Our Newsletter You Can Get 30% Off</h2>
+                <p class="text-sm italic text-gray-400 mb-8">Details to details is what makes Hexashop different from the other themes.</p>
+                
+                <form class="flex flex-col md:flex-row gap-4">
+                    <input type="text" placeholder="Your Name" class="border border-gray-300 px-4 py-3 w-full outline-none focus:border-gray-900 text-sm italic">
+                    <input type="email" placeholder="Your Email Address" class="border border-gray-300 px-4 py-3 w-full outline-none focus:border-gray-900 text-sm italic">
+                    <button type="submit" class="bg-gray-900 text-white px-6 py-3 hover:bg-gray-700 transition">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="grid grid-cols-2 gap-y-8 gap-x-4">
+                <div>
+                    <h4 class="font-bold text-gray-900 text-sm mb-1">Store Location:</h4>
+                    <p class="text-xs text-gray-500">Sunny Isles Beach, FL 33160, United States</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 text-sm mb-1">Work Hours:</h4>
+                    <p class="text-xs text-gray-500">07:30 AM - 9:30 PM Daily</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 text-sm mb-1">Phone:</h4>
+                    <p class="text-xs text-gray-500">010-020-0340</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 text-sm mb-1">Email:</h4>
+                    <p class="text-xs text-gray-500">info@company.com</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 text-sm mb-1">Office Location:</h4>
+                    <p class="text-xs text-gray-500">North Miami Beach</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 text-sm mb-1">Social Media:</h4>
+                    <p class="text-xs text-gray-500">Facebook, Instagram, Behance, Linkedin</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#2a2a2a] text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="bg-white text-gray-900 w-10 h-10 flex items-center justify-center font-bold text-xl">H</div>
+                        <div class="flex flex-col">
+                            <span class="text-xl font-bold tracking-wide uppercase">Hexashop</span>
+                            <span class="text-[9px] tracking-widest text-gray-400 uppercase">Online Shopping</span>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-300 space-y-2 leading-relaxed">
+                        <p>16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</p>
+                        <p class="hover:text-white cursor-pointer transition">hexashop@company.com</p>
+                        <p>010-020-0340</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-6">Shopping & Categories</h4>
+                    <ul class="text-xs text-gray-300 space-y-4">
+                        <li><a href="#" class="hover:text-white transition">Men's Shopping</a></li>
+                        <li><a href="#" class="hover:text-white transition">Women's Shopping</a></li>
+                        <li><a href="#" class="hover:text-white transition">Kid's Shopping</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-6">Useful Links</h4>
+                    <ul class="text-xs text-gray-300 space-y-4">
+                        <li><a href="#" class="hover:text-white transition">Homepage</a></li>
+                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">Help</a></li>
+                        <li><a href="#" class="hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-6">Help & Information</h4>
+                    <ul class="text-xs text-gray-300 space-y-4">
+                        <li><a href="#" class="hover:text-white transition">Help</a></li>
+                        <li><a href="#" class="hover:text-white transition">FAQ's</a></li>
+                        <li><a href="#" class="hover:text-white transition">Shipping</a></li>
+                        <li><a href="#" class="hover:text-white transition">Tracking ID</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-xs text-gray-300">
+                    Copyright © 2024 HexaShop Co., Ltd. All Rights Reserved. 
+                    <br class="md:hidden"> 
+                    Design: <a href="#" class="text-white font-bold hover:underline">TemplateMo</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            // Simple logic for the mobile menu placeholder
+            alert("Mobile Menu Toggle Triggered (Implement dropdown logic here)");
+        }
+
+        // Form Submission Prevent Default
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Form Submitted!');
+        });
+    </script>
+</body>
+</html>

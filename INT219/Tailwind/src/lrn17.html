@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id = "btn1">click me</button><br><br>
+    <select id="colorSelect">
+        <option value="">choose a color</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+
+    </select><br><br>
+    <p id="message"></p>
+    <div id="box" style="width:100px; height:100px; background-color:blue;">Hover</div>
+    <script>
+        document.getElementById("btn1").addEventListener("click",function(){
+            document.getElementById("message").innerText = "button clicked!"
+        })
+        document.getElementById("colorSelect").addEventListener("change",function(){
+            const color=this.value
+            document.body.style.background=color
+        })
+        const box=document.getElementById("box")
+        box.addEventListener("mouseover",function(){
+            box.style.backgroundColor="orange"
+            this.innerText="Mouse is over me"
+        })
+        box.addEventListener("mouseout",function(){
+            box.style.backgroundColor="blue"
+            this.innerText="Hover"
+        })
+    </script>
+</body>
+</html>

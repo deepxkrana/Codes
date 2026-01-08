@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <header class="min-w-full bg-white shadow-md">
+        <nav class="bg-gray-900 flex justify-between items-center p-4">
+            <h1 class="text-white text-xl">Website</h1>
+            <ul class="flex space-x-4">
+                <li class="px-4 py-2 text-white hover:text-blue-700"><a href="#">Home</a></li>
+                <li class="px-4 py-2 text-white hover:text-blue-700"><a href="#">About</a></li>
+                <li class="px-4 py-2 text-white hover:text-blue-700"><a href="#">Services</a></li>
+                <li class="px-4 py-2 text-white hover:text-blue-700"><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="bg-gray-50">
+            <h1 class="text-center text-2xl text-blue-700">ChessBoard</h1>
+            <div class="grid grid-cols-8 gap-0 w-fit mx-auto border-4 border-black">
+                <!-- Row 1 -->
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <!-- Row 2 -->
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <!-- Row 3 -->
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <!-- Row 4 -->
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <!-- Row 5 -->
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <!-- Row 6 -->
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <!-- Row 7 -->
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <!-- Row 8 -->
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+                <div class="bg-black w-32 h-32"></div>
+                <div class="bg-white w-32 h-32"></div>
+            </div>
+        </section>
+        <!-- HERO SECTION -->
+  <section class="bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+      
+      <div>
+        <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+          Build Faster With <span class="text-blue-600">Tailwind CSS</span>
+        </h2>
+        <p class="mt-6 text-gray-600 text-lg">
+          A modern utility-first CSS framework that helps you build responsive,
+          clean, and scalable user interfaces quickly.
+        </p>
+
+        <div class="mt-8 space-x-4">
+          <button class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700">
+            Get Started
+          </button>
+          <button class="border border-gray-300 px-6 py-3 rounded hover:bg-gray-100">
+            Learn More
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-8 text-center">
+        <p class="text-gray-500">Placeholder for image / illustration</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="max-w-7xl mx-auto px-6 py-20">
+    <h2 class="text-3xl font-bold text-center mb-12">Features</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h3 class="text-xl font-bold mb-2">Fast Development</h3>
+        <p class="text-gray-600">
+          Build layouts directly in your HTML without switching files.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h3 class="text-xl font-bold mb-2">Responsive Design</h3>
+        <p class="text-gray-600">
+          Mobile-first utilities make responsive design effortless.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h3 class="text-xl font-bold mb-2">Clean UI</h3>
+        <p class="text-gray-600">
+          Consistent spacing, colors, and typography out of the box.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section class="max-w-full mx-auto px-6 py-20">
+    <h2 class="text-3xl font-bold text-center mb-12">Gallery</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="h-80 bg-gray-200 rounded-lg overflow-hidden shadow-md">
+            <img src="./elephant.jpg" alt="Gallery Image 1" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+        </div>
+        <div class="h-80 bg-gray-200 rounded-lg overflow-hidden shadow-md">
+            <img src="./restraunt.jpg" alt="Gallery Image 2" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+        </div>
+        <div class="h-80 bg-gray-200 rounded-lg overflow-hidden shadow-md">
+            <img src="./cat.jpg" alt="Gallery Image 3" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+        </div>
+        <div class="h-80 bg-gray-200 rounded-lg overflow-hidden shadow-md">
+            <img src="./elephant.jpg" alt="Gallery Image 4" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+        </div>
+        <div class="h-80 bg-gray-200 rounded-lg overflow-hidden shadow-md">
+            <img src="./restraunt.jpg" alt="Gallery Image 5" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+        </div>
+        <div class="h-80 bg-gray-200 rounded-lg overflow-hidden shadow-md">
+            <img src="./cat.jpg" alt="Gallery Image 6" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+        </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="bg-gray-50 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">What Users Say</h2>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded shadow">
+          <p class="text-gray-600">
+            “Tailwind completely changed the way I build UIs. Faster and cleaner.”
+          </p>
+          <p class="mt-4 font-bold">— Developer A</p>
+        </div>
+
+        <div class="bg-white p-6 rounded shadow">
+          <p class="text-gray-600">
+            “No more fighting CSS. Everything just works.”
+          </p>
+          <p class="mt-4 font-bold">— Developer B</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING TABLE -->
+  <section class="max-w-7xl mx-auto px-6 py-20">
+    <h2 class="text-3xl font-bold text-center mb-12">Pricing Plans</h2>
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-white border border-gray-200 shadow-md rounded-lg">
+        <thead>
+          <tr class="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
+            <th class="py-3 px-6 text-left">Plan</th>
+            <th class="py-3 px-6 text-left">Price</th>
+            <th class="py-3 px-6 text-center">Storage</th>
+            <th class="py-3 px-6 text-center">Users</th>
+            <th class="py-3 px-6 text-center">Status</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-600 text-sm font-light">
+          <tr class="border-b border-gray-200 hover:bg-gray-100">
+            <td class="py-3 px-6 text-left whitespace-nowrap">
+              <span class="font-medium">Basic</span>
+            </td>
+            <td class="py-3 px-6 text-left">Free</td>
+            <td class="py-3 px-6 text-center">5 GB</td>
+            <td class="py-3 px-6 text-center">1</td>
+            <td class="py-3 px-6 text-center">
+              <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span>
+            </td>
+          </tr>
+          <tr class="border-b border-gray-200 hover:bg-gray-100">
+            <td class="py-3 px-6 text-left whitespace-nowrap">
+              <span class="font-medium">Pro</span>
+            </td>
+            <td class="py-3 px-6 text-left">$15/mo</td>
+            <td class="py-3 px-6 text-center">50 GB</td>
+            <td class="py-3 px-6 text-center">5</td>
+            <td class="py-3 px-6 text-center">
+              <span class="bg-blue-200 text-blue-600 py-1 px-3 rounded-full text-xs">Available</span>
+            </td>
+          </tr>
+          <tr class="border-b border-gray-200 hover:bg-gray-100">
+            <td class="py-3 px-6 text-left whitespace-nowrap">
+              <span class="font-medium">Enterprise</span>
+            </td>
+            <td class="py-3 px-6 text-left">$99/mo</td>
+            <td class="py-3 px-6 text-center">Unlimited</td>
+            <td class="py-3 px-6 text-center">Unlimited</td>
+            <td class="py-3 px-6 text-center">
+              <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Contact Us</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FORMS SECTION -->
+  <section class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+      
+      <!-- Contact Us Form -->
+      <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-6 text-gray-800">Contact Us</h2>
+        <form>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="contact-name">Name</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="contact-name" type="text" placeholder="Your Name">
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="contact-email">Email</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="contact-email" type="email" placeholder="Your Email">
+          </div>
+          <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="contact-message">Message</label>
+            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="contact-message" rows="4" placeholder="Your Message"></textarea>
+          </div>
+          <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            Send Message
+          </button>
+        </form>
+      </div>
+
+      <!-- Registration Form -->
+      <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-6 text-gray-800">Register</h2>
+        <form>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="reg-username">Username</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="reg-username" type="text" placeholder="Username">
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="reg-email">Email</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="reg-email" type="email" placeholder="Email">
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="reg-password">Password</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="reg-password" type="password" placeholder="******************">
+          </div>
+          <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="reg-confirm-password">Confirm Password</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="reg-confirm-password" type="password" placeholder="******************">
+          </div>
+          <button id="register-btn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            Register
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-blue-600 text-white py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold">
+        Ready to Build Something Great?
+      </h2>
+      <p class="mt-4 text-blue-100">
+        Start using Tailwind CSS today and speed up your workflow.
+      </p>
+
+      <button id="cta-button" class="mt-8 bg-white text-blue-600 px-6 py-3 rounded font-semibold hover:bg-gray-100">
+        Get Started Now
+      </button>
+    </div>
+  </section>
+
+
+    </main>
+        <main>
+        <section class="bg-gray-50">
+            <h1 class="text-center text-2xl text-blue-700">ChessBoard</h1>
+            <div id="chessboard" class="grid grid-cols-8 gap-0 w-fit h-fit mx-auto border-4 border-black"></div>
+            <script>
+                const board = document.getElementById('chessboard');
+                for (let row = 0; row < 8; row++) {
+                    for (let col = 0; col < 8; col++) {
+                        const isBlack = (row + col) % 2 === 1;
+                        const square = document.createElement('div');
+                        square.className = `${isBlack ? 'bg-black' : 'bg-white'} w-32 h-32`;
+                        board.appendChild(square);
+                    }
+                }
+            </script>
+        </section>
+    </main>
+
+      <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-400 py-8">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between">
+      <p>© 2025 Brand. All rights reserved.</p>
+      <div class="space-x-6">
+        <a href="#" class="hover:text-white">Privacy</a>
+        <a href="#" class="hover:text-white">Terms</a>
+        <a href="#" class="hover:text-white">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    $("#cta-button").on("click", function(){
+        alert("CTA Button Clicked!")
+    });
+    $("#register-btn").click(function(){
+        var password = $("#reg-password").val();
+        var confirmPassword = $("#reg-confirm-password").val();
+        if(password != confirmPassword){
+            alert("Passwords do not match!");
+        } else {
+            alert("Registration Successful!");
+        }
+    });
+  </script>
+</body>
+</html>

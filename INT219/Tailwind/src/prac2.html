@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeCam - Security Services Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                fontFamily: {
+                    'sans': ['Poppins', 'sans-serif'],
+                },
+                extend: {
+                    colors: {
+                        'safecam-blue': '#2563EB',
+                        'safecam-red': '#EF4444',
+                        'safecam-dark': '#111827',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .carousel-overlay {
+            background: rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-gray-50">
+
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0">
+                    <a href="#" class="flex items-center">
+                        <span class="text-2xl font-bold text-safecam-blue">Safe</span>
+                        <span class="text-2xl font-bold text-safecam-red">Cam</span>
+                    </a>
+                </div>
+
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-safecam-blue font-medium">Home</a>
+                    <a href="#" class="text-gray-700 hover:text-safecam-blue font-medium transition">About</a>
+                    <a href="#" class="text-gray-700 hover:text-safecam-blue font-medium transition">Service</a>
+                    <div class="relative group">
+                        <a href="#" class="text-gray-700 hover:text-safecam-blue font-medium transition inline-flex items-center">
+                            Pages <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                    </div>
+                    <a href="#" class="text-gray-700 hover:text-safecam-blue font-medium transition">Contact</a>
+                </nav>
+
+                <div class="hidden md:block">
+                    <a href="tel:+123456789" class="bg-safecam-red hover:bg-red-600 text-white font-medium py-3 px-6 rounded inline-flex items-center transition">
+                        <i class="fas fa-phone-alt mr-2"></i>
+                        +123 456 789
+                    </a>
+                </div>
+                
+                <div class="md:hidden items-center">
+                    <button type="button" class="text-gray-700 hover:text-safecam-blue focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative h-[600px] sm:h-[700px]">
+        <div class="absolute inset-0">
+            <img src="restraunt.jpg" alt="Security Camera" class="w-full h-full object-cover">
+            <div class="absolute inset-0 carousel-overlay"></div>
+        </div>
+
+        <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+            <div class="w-full md:w-2/3 lg:w-1/2 text-white">
+                <h4 class="text-sm font-semibold tracking-widest uppercase mb-4">Best Security Services</h4>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
+                    Safe & Secure Home<br>For Your Family
+                </h1>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#" class="bg-safecam-blue hover:bg-blue-600 text-white font-medium py-3 px-8 rounded transition">Get Quote</a>
+                    <a href="#" class="bg-safecam-red hover:bg-red-600 text-white font-medium py-3 px-8 rounded transition">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+        <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-transparent text-white text-4xl opacity-50 hover:opacity-100 transition hidden sm:block">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-transparent text-white text-4xl opacity-50 hover:opacity-100 transition hidden sm:block">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </section>
+
+    <section class="py-16 sm:py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="w-full lg:w-1/2">
+                    <img src="restraunt.jpg" alt="About Us Security Cameras" class="w-full h-auto rounded-lg shadow-lg object-cover" style="max-height: 500px;">
+                </div>
+
+                <div class="w-full lg:w-1/2">
+                    <h4 class="text-safecam-blue font-semibold tracking-widest uppercase mb-4">About Us</h4>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-safecam-dark mb-6">We Offers Quality CCTV Systems & Services</h2>
+                    <p class="text-lg text-gray-600 italic mb-6">
+                        Diam dolor diam ipsum sit. Clita erat ipsum et lorem stet no lorem sit clita duo justo magna dolore
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet et magna
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="bg-safecam-blue rounded-lg p-8 text-center text-white flex flex-col items-center justify-center">
+                            <i class="fas fa-star text-4xl mb-4"></i>
+                            <h3 class="text-xl font-bold">15 Years Experience</h3>
+                        </div>
+                        <div class="bg-safecam-red rounded-lg p-8 text-center text-white flex flex-col items-center justify-center">
+                            <i class="fas fa-award text-4xl mb-4"></i>
+                            <h3 class="text-xl font-bold">Award Winning</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
